@@ -2,12 +2,12 @@ import classes from "./CurrentWeather.module.css";
 import icon from '../assets/icons/svg/001-sunny.svg'
 import {useSelector} from "react-redux";
 
-let isInitial = true;
 
 const CurrentWeather = () => {
 
     const weatherType = useSelector(state => state.api.weatherStatus);
     const temp = useSelector(state => state.api.temperature);
+
 
     return(
         <div className={classes.wrapper}>
