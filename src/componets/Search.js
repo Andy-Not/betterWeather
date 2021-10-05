@@ -4,6 +4,7 @@ import TextField from '@mui/material/TextField';
 import {useSelector, useDispatch} from "react-redux";
 import {apiActions} from "../store/api-slice";
 import {useEffect} from 'react';
+import IconChanger from './IconChanger'
 
 let isInitial = true;
 
@@ -23,11 +24,13 @@ const Search = () => {
             }
             console.log('REQUESTED SEARCH')
             const data = await response.json()
+            console.log(data)
 
             dispatch(apiActions.updateWeatherInfo({
                 city: data.name,
                 temperature: data.main.temp,
-                weatherStatus: data.weather[0].description
+                weatherStatus: data.weather[0].description,
+                weatherMain: data.weather[0].main
             }))
         }
         const geoHandeler = async () => {
@@ -80,6 +83,7 @@ const Search = () => {
                 <TextField id="outlined-basic" label="City" variant="outlined" onChange={cityInputHandler}/>
                 <Button variant={"contained"} type={"submit"}>Search</Button>
             </form>
+            <IconChanger></IconChanger>
         </div>
     )
 }
