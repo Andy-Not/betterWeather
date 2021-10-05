@@ -6,10 +6,9 @@ import dayCloud from '../assets/icons/svg/sunnyCloundy.svg';
 import cloud from '../assets/icons/svg/cloud.svg';
 import rain from '../assets/icons/svg/005-heavy rain.svg';
 import rainDay from '../assets/icons/svg/003-rain.svg';
-import rainNight from '../assets/icons/svg/017-rainNight.svg';
+// import rainNight from '../assets/icons/svg/017-rainNight.svg';
 import snow from '../assets/icons/svg/009-snow.svg';
 import {useSelector} from "react-redux";
-import { useState, useEffect } from 'react';
 
 
 
