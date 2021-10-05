@@ -1,5 +1,4 @@
 import classes from "./CurrentWeather.module.css";
-import icon from '../assets/icons/svg/001-sunny.svg'
 import {useSelector} from "react-redux";
 import IconChnager from './IconChanger';
 
