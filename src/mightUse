@@ -1,0 +1,45 @@
+// const [isSunset, setIsSunset] = useState(null);
+// const [currentIcon, setCurrentIcon] = useState('');
+//
+// const sunsetHandler = (dayUnixTime, sunsetUnixTime, sunriseUnixTime) => {
+//     console.log('EXECUTED')
+//     const unixTimeCoverter = (unixTime) => {
+//         const date = new Date(unixTime * 1000);
+//         let hours = date.getHours();
+//         let ampm = hours >= 12 ? 'pm' : 'am';
+//         return {
+//             hours,
+//             ampm
+//         };
+//     }
+//
+//     const sunsetTime = unixTimeCoverter(sunsetUnixTime);
+//     const sunriseTime = unixTimeCoverter(sunriseUnixTime);
+//     const currentTime = unixTimeCoverter(dayUnixTime);
+//
+//     if (currentTime.ampm === "am" && currentTime.hours >= sunriseTime.hours){
+//         setIsSunset(false)
+//         setCurrentIcon(sun)
+//         console.log('DAY')
+//     }else if (currentTime.ampm === "pm" && currentTime.hours >= sunsetTime.hours){
+//         setIsSunset(true)
+//         setCurrentIcon(moon)
+//         console.log('NIGHT')
+//     }else {
+//         console.log('NO DATA')
+//     }
+//
+//     return {currentTime, sunsetTime, sunriseTime}
+// }
+//
+// const currentTime = useSelector(state => state.api.currentTime);
+// const sunsetTime = useSelector(state => state.api.sunsetTime);
+// const sunriseTime = useSelector(state => state.api.sunriseTime);
+// const city = useSelector(state => state.api.city);
+//
+//
+// useEffect(() => {
+//         console.log({function: sunsetHandler(currentTime,sunsetTime,sunriseTime), text: 'TIME', city});
+//
+//
+// }, [currentTime]);

@@ -1,47 +1,52 @@
 import sun from '../assets/icons/svg/001-sunny.svg';
 import moon from '../assets/icons/svg/013-new moon.svg';
+import nightCloud from  '../assets/icons/svg/016-cloudy.svg';
 import thunder from '../assets/icons/svg/007-thunder.svg';
+import dayCloud from '../assets/icons/svg/sunnyCloundy.svg';
+import cloud from '../assets/icons/svg/cloud.svg';
+import rain from '../assets/icons/svg/005-heavy rain.svg';
+import rainDay from '../assets/icons/svg/003-rain.svg';
+import rainNight from '../assets/icons/svg/017-rainNight.svg';
+import snow from '../assets/icons/svg/009-snow.svg';
 import {useSelector} from "react-redux";
-import { useState } from 'react';
-
-const sunsetHandler = (dayUnixTime, sunsetUnixTime, sunriseUnixTime) => {
-    const unixTimeCoverter = (unixTime) => {
-        const date = new Date(unixTime * 1000);
-        let hours = date.getHours();
-        let ampm = hours >= 12 ? 'pm' : 'am';
-        return {
-            hours,
-            ampm
-        };
-    }
-
-    const sunsetTime = unixTimeCoverter(sunsetUnixTime);
-    const sunriseTime = unixTimeCoverter(sunriseUnixTime);
-    const currentTime = unixTimeCoverter(dayUnixTime);
-    let isSunset = null;
-
-    if (currentTime.ampm === "am" && currentTime.hours >= sunriseTime.hours){
-        isSunset = false
-    }
-    if (currentTime.ampm === "pm" && currentTime.hours >= sunsetTime.hours){
-        isSunset = true
-    }
-    return isSunset
-}
-
+import { useState, useEffect } from 'react';
 
 
 
 const IconChanger = () => {
+    const currentIcon = useSelector(state => state.api.icon);
 
-    console.log(sunsetHandler(1633305978,1633300857,1633258828));
+    let icon = '';
 
+    if (currentIcon === '01d'){
+        icon= sun;
+    }
+    if (currentIcon === '01n'){
+        icon = moon;
+    }
+    if (currentIcon === '02n'){
+        icon = nightCloud;
+    }
+    if (currentIcon === '02d'){
+        icon = dayCloud;
+    }
+    if (currentIcon === '03n' || currentIcon === '03d'|| currentIcon === '04n'|| currentIcon === '04d'|| currentIcon === '50n'|| currentIcon === '50d'){
+        icon = cloud;
+    }
+    if (currentIcon === '09d' || currentIcon === '09n'){
+        icon = rain;
+    }
+    if (currentIcon === '10d' || currentIcon === '10n'){
+        icon = rainDay;
+    }
+    if (currentIcon === '11d' || currentIcon === '11n'){
+        icon = thunder;
+    }
+    if (currentIcon === '13d' || currentIcon === '13n'){
+        icon = snow;
+    }
 
-    return(
-        <div style={{color: 'red'}}>
-
-        </div>
-    )
+    return <img src={icon} alt=""/>
 }
 
 

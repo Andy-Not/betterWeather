@@ -1,6 +1,7 @@
 import classes from "./CurrentWeather.module.css";
 import icon from '../assets/icons/svg/001-sunny.svg'
 import {useSelector} from "react-redux";
+import IconChnager from './IconChanger';
 
 
 const CurrentWeather = () => {
@@ -17,7 +18,7 @@ const CurrentWeather = () => {
                 </div>
             </div>
             <div className={classes.icon}>
-                <img src={icon} alt="sunny"/>
+                <IconChnager/>
             </div>
             <div className={classes['weather-info']}>
                 <div className={classes['weather-type']}>{weatherType}</div>
