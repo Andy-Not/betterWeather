@@ -11,11 +11,10 @@ const dataFetch = useCallback(async (url) => {
     }
     console.log('REQUESTED SEARCH')
     const data = await response.json()
-    console.log({data,  text:'AUTO DATA'})
 
     dispatch(apiActions.updateWeatherInfo({
         city: data.name,
-        temperature: data.main.temp,
+        temperature: Math.round(data.main.temp),
         weatherStatus: data.weather[0].description,
         weatherMain: data.weather[0].main,
         currentTime: data.dt,

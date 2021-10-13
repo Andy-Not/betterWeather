@@ -1,8 +1,7 @@
 import classes from './Search.module.css';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
 import {useEffect, useState} from 'react';
 import useApiFetch from '../hooks/useApiFetch';
+import logo from '../assets/icons/svg/logo.svg';
 
 
 const Search = () => {
@@ -39,13 +38,16 @@ const Search = () => {
 
     return(
         <div className={classes.wrapper}>
-            <div>
-                {city}
+            <div className={classes['logo-wrapper']}>
+                <img className={classes.logo} src={logo} alt=""/>
             </div>
             <form onSubmit={searchDataByCityHandler}>
-                <TextField id="outlined-basic" label="City" variant="outlined" onChange={cityInputHandler} value={city}/>
-                <Button variant={"contained"} type={"submit"}>Search</Button>
+                <input placeholder={'City'} onChange={cityInputHandler} value={city}/>
+                <button className={classes.btn} type={"submit"}>Submit</button>
             </form>
+            <div className={classes.city}>
+                {city}
+            </div>
         </div>
     )
 }
