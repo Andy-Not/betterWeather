@@ -6,15 +6,16 @@ import logo from '../assets/icons/svg/logo.svg';
 
 const Search = () => {
 
-    const [city, setCity] = useState('')
-    const {requestData} = useApiFetch(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`);
+    const [unit, setUnit] = useState('metric');
+    const [city, setCity] = useState('');
+    const {requestData} = useApiFetch(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=${unit}`);
     const {requestData: onLoadFetch} = useApiFetch();
 
     useEffect(() =>{
         const geoLoactionHandler = async () => {
             if (navigator.geolocation){
                 await navigator.geolocation.getCurrentPosition(position => {
-                    onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?${"&lat=" + position.coords.latitude  + "&lon=" + position.coords.longitude}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`)
+                    onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?${"&lat=" + position.coords.latitude  + "&lon=" + position.coords.longitude}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=${unit}`)
                 });
             }else{
                 alert('navigator geoloacation not allowed :(')
@@ -32,7 +33,7 @@ const Search = () => {
         if (city === ''){
             return
         }
-       requestData(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`)
+       requestData(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=${unit}`)
         setCity('')
     }
 
