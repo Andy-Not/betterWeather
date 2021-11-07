@@ -6,7 +6,7 @@ import logo from '../assets/icons/svg/logo.svg';
 
 const Search = () => {
 
-    const [city, setCity] = useState('')
+    const [city, setCity] = useState('');
     const {requestData} = useApiFetch(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`);
     const {requestData: onLoadFetch} = useApiFetch();
 

@@ -1,18 +1,18 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
-    city: '',
-    weatherStatus: '',
-    temperature: '',
-    weatherMain: '',
+    city: "",
+    weatherStatus: "",
+    temperature: "",
+    weatherMain: "",
     currentTime: null,
     sunriseTime: null,
     sunsetTime: null,
-    icon: ''
+    icon: ""
 }
 
 const apiSlice = createSlice({
-    name:'weather',
+    name:"weather",
     initialState,
     reducers: {
         updateWeatherInfo(state, action) {
