@@ -5,3 +5,15 @@
     box-sizing: border-box;
     font-family: 'Patrick Hand', cursive;
 }
+body{
+    background-color: #FAF7FF;
+    display: flex;
+    justify-content: space-around;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+.nav{
+    order: 1;
+}

@@ -1,7 +1,6 @@
 import classes from './Search.module.css';
 import {useEffect, useState} from 'react';
 import useApiFetch from '../hooks/useApiFetch';
-import logo from '../assets/icons/svg/logo.svg';
 
 
 const Search = () => {
@@ -12,12 +11,14 @@ const Search = () => {
 
     useEffect(() =>{
         const geoLoactionHandler = async () => {
-            if (navigator.geolocation){
+            if (window.navigator.geolocation){
                 await navigator.geolocation.getCurrentPosition(position => {
                     onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?${"&lat=" + position.coords.latitude  + "&lon=" + position.coords.longitude}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`)
-                });
-            }else{
-                alert('navigator geoloacation not allowed :(')
+                }, fallback => {
+                    onLoadFetch("https://api.openweathermap.org/data/2.5/weather?q=miami&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial")
+                        console.log(fallback)
+                    }
+                );
             }
         }
         geoLoactionHandler();
@@ -37,18 +38,12 @@ const Search = () => {
     }
 
     return(
-        <div className={classes.wrapper}>
-            <div className={classes['logo-wrapper']}>
-                <img className={classes.logo} src={logo} alt=""/>
-            </div>
+        <nav className={`${classes.wrapper} nav`}>
             <form onSubmit={searchDataByCityHandler}>
-                <input placeholder={'City'} onChange={cityInputHandler} value={city}/>
+                <input placeholder={'Search City'} onChange={cityInputHandler} value={city}/>
                 <button className={classes.btn} type={"submit"}>Submit</button>
             </form>
-            <div className={classes.city}>
-                {city}
-            </div>
-        </div>
+        </nav>
     )
 }
 export default Search;
