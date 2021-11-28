@@ -1,13 +1,12 @@
 import CurrentWeather from "./componets/CurrentWeather";
 import Search from "./componets/Search";
-import './App.css';
 
 function App() {
   return (
-    <div className={'wrapper'}>
+    <main>
           <Search/>
-          <CurrentWeather className={'weather'}/>
-    </div>
+          <CurrentWeather/>
+    </main>
   );
 }
 

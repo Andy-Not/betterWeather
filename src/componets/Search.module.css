@@ -177,10 +177,10 @@
 @media only screen and (max-width: 420px) {
     .wrapper{
         display: flex;
-        flex-direction: column;
+        width: 100%;
         justify-content: center;
         align-items: center;
-        padding: 0.3rem;
+        padding: 1rem;
     }
 
     .logo{
@@ -193,10 +193,11 @@
     }
 
     form input{
+        background-color: #FAF7FF;
         height: 4rem;
-        width: 20rem;
-        border-radius: 3px;
-        border: 1px solid #EDB5D0;
+        width: 100%;
+        border-radius: 50vh;
+        border: 3px solid #BEBBCE;
         font-size: 2rem;
         text-align: center;
         transition: border 1s ease-in;
