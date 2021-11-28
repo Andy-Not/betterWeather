@@ -82,14 +82,12 @@
 @media only screen and (min-width: 768px) and (max-width: 1023px) {
     .wrapper{
         display: flex;
-        flex-direction: row;
+        width: 100%;
         justify-content: center;
         align-items: center;
-        padding: 0.3rem;
+        padding: 1rem;
     }
-    .logo-wrapper{
-        order: 1;
-    }
+
     .logo{
         height: 100px;
         width: 100px;
@@ -100,14 +98,11 @@
     }
 
     form input{
-        position: absolute;
-        margin: 0 auto;
-        top: 25px;
-        left: 9px;
+        background-color: #FAF7FF;
         height: 4rem;
-        width: 20rem;
-        border-radius: 3px;
-        border: 1px solid #EDB5D0;
+        width: 100%;
+        border-radius: 50vh;
+        border: 3px solid #BEBBCE;
         font-size: 2rem;
         text-align: center;
         transition: border 1s ease-in;
@@ -116,14 +111,10 @@
         border: 3px #9BCAF2 solid;
     }
     .city{
-        margin: auto;
-        position: absolute;
-        top: 30px;
-        right: 9px;
-        order: 4;
         color: black;
+        font-size: 3rem;
         font-weight: bold;
-        font-size: 2rem;
+        margin-top: 2rem;
     }
     .btn{
         display: none;
@@ -135,10 +126,9 @@
 @media only screen and (min-width: 421px) and (max-width: 767px) {
     .wrapper{
         display: flex;
-        flex-direction: column;
+        width: 100%;
         justify-content: center;
         align-items: center;
-        padding: 0.3rem;
     }
 
     .logo{
@@ -151,10 +141,11 @@
     }
 
     form input{
+        background-color: #FAF7FF;
         height: 4rem;
-        width: 20rem;
-        border-radius: 3px;
-        border: 1px solid #EDB5D0;
+        width: 100%;
+        border-radius: 50vh;
+        border: 3px solid #BEBBCE;
         font-size: 2rem;
         text-align: center;
         transition: border 1s ease-in;
@@ -164,8 +155,9 @@
     }
     .city{
         color: black;
-        font-size: 2.3rem;
+        font-size: 3rem;
         font-weight: bold;
+        margin-top: 2rem;
     }
     .btn{
         display: none;
