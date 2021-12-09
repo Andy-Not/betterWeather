@@ -14,9 +14,6 @@ const CurrentWeather = () => {
         const metricTemp = (imperialTemp - 32) * 5/9;
         return  Math.round(metricTemp);
     }
-
-
-
     function getDayName()
     {
         const today = new Date();

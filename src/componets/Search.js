@@ -4,18 +4,18 @@ import useApiFetch from '../hooks/useApiFetch';
 
 
 const Search = () => {
-
+    const KEY = process.env.REACT_APP_API_KEY;
     const [city, setCity] = useState('');
-    const {requestData} = useApiFetch(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`);
+    const {requestData} = useApiFetch(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=${KEY}`);
     const {requestData: onLoadFetch} = useApiFetch();
 
     useEffect(() =>{
         const geoLoactionHandler = async () => {
             if (window.navigator.geolocation){
                 await navigator.geolocation.getCurrentPosition(position => {
-                    onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?${"&lat=" + position.coords.latitude  + "&lon=" + position.coords.longitude}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`)
+                    onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?${"&lat=" + position.coords.latitude  + "&lon=" + position.coords.longitude}&appid=${KEY}&units=imperial`)
                 }, fallback => {
-                    onLoadFetch("https://api.openweathermap.org/data/2.5/weather?q=miami&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial")
+                    onLoadFetch(`https://api.openweathermap.org/data/2.5/weather?q=miami&appid=${KEY}&units=imperial`)
                         console.log(fallback)
                     }
                 );
@@ -33,7 +33,7 @@ const Search = () => {
         if (city === ''){
             return
         }
-       requestData(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=8d342f682d66b6e1370bc79bd312bcd2&units=imperial`)
+       requestData(`https://api.openweathermap.org/data/2.5/weather?${"q=" + city}&appid=${KEY}&units=imperial`)
         setCity('')
     }
 
