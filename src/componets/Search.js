@@ -22,7 +22,7 @@ const Search = () => {
             }
         }
         geoLoactionHandler();
-    },[onLoadFetch])
+    },[onLoadFetch, KEY])
 
     const cityInputHandler = (event) => {
         setCity(event.target.value)

@@ -8,7 +8,8 @@ const initialState = {
     currentTime: null,
     sunriseTime: null,
     sunsetTime: null,
-    icon: ""
+    icon: "",
+    hasError: true
 }
 
 const apiSlice = createSlice({
@@ -24,6 +25,7 @@ const apiSlice = createSlice({
             state.sunriseTime = action.payload.sunriseTime;
             state.sunsetTime = action.payload.sunsetTime;
             state.icon = action.payload.icon;
+            state.hasError = action.payload.hasError;
         }
     }
 })

@@ -14,6 +14,7 @@ const CurrentWeather = () => {
         const metricTemp = (imperialTemp - 32) * 5/9;
         return  Math.round(metricTemp);
     }
+
     function getDayName()
     {
         const today = new Date();
@@ -24,8 +25,6 @@ const CurrentWeather = () => {
         const date = new Date(currentFullDate);
         return date.toLocaleDateString("en-US", { weekday: 'long' });
     }
-
-
 
 
     const onUnitChangeHandler = (event) => {
