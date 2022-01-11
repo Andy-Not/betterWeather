@@ -7,8 +7,8 @@ function App() {
 
   return (
     <main>
-          <Search/>
-        {apiData.hasError?<h1>CITY OR STATE WAS FOUND<br/>TRY AGAIN</h1>:<CurrentWeather/>}
+        <Search/>
+        {apiData.hasError?<h1>CITY OR STATE WAS NOT FOUND<br/>TRY AGAIN</h1>:<CurrentWeather/>}
     </main>
   );
 }
